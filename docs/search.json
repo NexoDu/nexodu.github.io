@@ -1,16 +1,30 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "About this site"
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nDu Du\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "website",
+    "title": "Du Du",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nHello! My name is Du Du and I come from China. I just finished my undergraduate study at UBC as well and I’m now at MDS program at UBC! I would like to explore the world using the latest technology under the emerge of LLM. Hopefully I can get into the field of Data Science!"
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "The orientation was great! I made several friends and chatted a lot. The professors and coordinators were kind and warm.\nWeek of MDS has finished! Initially I felt nervous and afraid of can’t catching up. However, things went smoother and I managed to submit all homework before Saturday!\nWhen I write this post, I get busier than the past week. I have so much thigns to do!!!\n\n\n\nOrientation day on campus."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n##Background\nBorn and raised in Tianjin, China, yes, like the stereotypes I can do crosstalks for sure. I studied until second year of my undergrads and transferred to UBC Sauder and finished my undergraduate this May. Then I directly enterred into MDS at UBC for further study.\n##Why Data Science\nWhile studying in NWAFU (Northwest Agricultural and Forestry University) in Shaanxi, China, I did Computer Science and find that it is really exciting to explore how the computers work. Further, with the merge of AI tools I have also gain a variety of knowledges outside of classroom and learned health related tips in my daily life. I would like to dive into the field of data science to keep in pace of the development of the world. That’s probablity why I chose DS.\n##Outside of Data Science\n\nMusic\n\nPiano\nGuitar\nSinging\n\nSports\n\nBadminton\nTabletennis\nBasketball\nRunnning\nHiking"
   }
 ]

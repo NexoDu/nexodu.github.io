@@ -1,7 +1,13 @@
 ---
-title: "website"
+title: "Du Du"
+about:
+  template: broadside
+  image: images/Me_Handsome.jpg
 ---
 
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+Hello! My name is Du Du and I come from China. I just finished my undergraduate study at UBC as well and I'm now at MDS program at UBC!
+I would like to explore the world using the latest technology under the emerge of LLM. Hopefully I can get into the field of Data Science!
