@@ -25,6 +25,27 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n##Background\nBorn and raised in Tianjin, China, yes, like the stereotypes I can do crosstalks for sure. I studied until second year of my undergrads and transferred to UBC Sauder and finished my undergraduate this May. Then I directly enterred into MDS at UBC for further study.\n##Why Data Science\nWhile studying in NWAFU (Northwest Agricultural and Forestry University) in Shaanxi, China, I did Computer Science and find that it is really exciting to explore how the computers work. Further, with the merge of AI tools I have also gain a variety of knowledges outside of classroom and learned health related tips in my daily life. I would like to dive into the field of data science to keep in pace of the development of the world. That’s probablity why I chose DS.\n##Outside of Data Science\n\nMusic\n\nPiano\nGuitar\nSinging\n\nSports\n\nBadminton\nTabletennis\nBasketball\nRunnning\nHiking"
+    "text": "About this site"
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "Background",
+    "text": "Background\nBorn and raised in Tianjin, China, yes, like the stereotypes I can do crosstalks for sure. I studied until second year of my undergrads and transferred to UBC Sauder and finished my undergraduate this May. Then I directly enterred into MDS at UBC for further study."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why Data Science",
+    "text": "Why Data Science\nWhile studying in NWAFU (Northwest Agricultural and Forestry University) in Shaanxi, China, I did Computer Science and find that it is really exciting to explore how the computers work. Further, with the merge of AI tools I have also gain a variety of knowledges outside of classroom and learned health related tips in my daily life. I would like to dive into the field of data science to keep in pace of the development of the world. That’s probablity why I chose DS."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of Data Science",
+    "text": "Outside of Data Science\n\nMusic\n\nPiano\nGuitar\nSinging\n\nSports\n\nBadminton\nTabletennis\nBasketball\nRunnning\nHiking"
   }
 ]
