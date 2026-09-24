@@ -1,0 +1,80 @@
+---
+title: "How does body mass differ from penguin species?"
+author: "Du Du"
+date: "2026-09-24"
+format: html
+execute:
+    echo: true
+---
+
+This post studies how penguins' species have impact on their corresponding body mass.
+
+License: The data source "penguins" comes from:
+[Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/), collected by Dr. Kristen Gorman and Palmer Station Antarctica LTER. The data are available under the CC0 license.
+
+
+```{python}
+#|label: setup
+#|warning: false
+
+import sys
+import pandas as pd
+from palmerpenguins import load_penguins
+import matplotlib.pyplot as plt
+from IPython.display import display
+```
+
+## Cleaning data
+Inspecting data and remove the missing values in species and body mass columns
+
+```{python}
+#|label: inspecting-and-cleaning-data
+penguins = load_penguins()
+penguins_clean = penguins.dropna(
+    subset = ['species', 'body_mass_g']
+).copy()
+
+original_rows = len(penguins)
+remaining_rows = len(penguins_clean)
+print(original_rows)
+print(remaining_rows)
+
+```
+
+## Analyzing body mass by species
+Grouping species and calculating the mean, median, and standard deviation of body mass for each species.
+```{python}
+#|label: summary-of-body-mass-by-species
+penguins_summary = (penguins.groupby('species', as_index=False).agg(
+    n = ('body_mass_g', 'count'),
+    mean_mass_g = ('body_mass_g', 'mean'),
+    median_mass_g = ('body_mass_g', 'median'),
+    sd_mass_g = ('body_mass_g', 'std')
+    )
+)
+penguins_summary
+```
+
+## Visualizing the summary using a boxplot
+```{python}
+#|label: figure-of-summary-of-body-mass-by-species
+#|fig-cap: "Body mass of penguins by species"
+
+species_order = ['Adelie', 'Chinstrap', 'Gentoo']
+values = []
+for species in species_order:
+    body_mass = penguins_clean.loc[penguins_clean['species'] == species, 'body_mass_g']
+    values.append(body_mass)
+
+fig, ax = plt.subplots(figsize = (7, 4.5))
+ax.boxplot(values, tick_labels = species_order)
+ax.set_xlabel('Penguin species')
+ax.set_ylabel('Body mass(g)')
+ax.grid(axis='y', alpha = 0.3)
+fig.tight_layout()
+plt.show()
+```
+
+
+## Findings
+After removing the two rows with nas, the outcome shows that 'Gentoo' species typically has the highest body mass across the three penguin species.

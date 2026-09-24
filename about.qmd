@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-About this site
-
 ## Background
 
 Born and raised in Tianjin, China, yes, like the stereotypes I can do crosstalks for sure. I studied until second year of my undergrads and transferred to UBC Sauder and finished my undergraduate this May. Then I directly enterred into MDS at UBC for further study.

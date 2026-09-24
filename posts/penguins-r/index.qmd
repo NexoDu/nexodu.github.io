@@ -1,0 +1,73 @@
+---
+title: "How does body mass differ from penguin species?"
+author: "Du Du"
+date: "2026-09-22"
+format: html
+engine: knitr
+---
+
+This post studies how penguins' species have impact on their corresponding body mass.
+
+License: The data source "penguins" comes from:
+[Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/), collected by Dr. Kristen Gorman and Palmer Station Antarctica LTER. The data are available under the CC0 license.
+
+## Loading library and inspecting data
+```{r}
+#| label: setup&inspect-data
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(palmerpenguins)
+dim(penguins)
+colSums(is.na(penguins))
+```
+
+## Cleaning data
+```{r}
+#| label: cleaning-data (dropping NAs only in column body_mass_g)
+
+penguins_clean <-
+    penguins |>
+    drop_na(body_mass_g)
+```
+
+## Analyzing body mass by species
+```{r}
+#| label: Analyzing-body_mass-by-species
+
+penguins_summary <-
+    penguins_clean |>
+    group_by(species) |>
+    summarise(
+        n = n(),
+        mean_mass_g = mean(body_mass_g),
+        median_mass_g = median(body_mass_g),
+        sd_mass_g = sd(body_mass_g),
+        .groups = "drop"
+    )
+
+knitr::kable(
+    penguins_summary,
+    digits = 1,
+    caption = "Body mass summary by penguin species(grams)."
+)
+```
+
+## Visualizing the summary using a boxplot
+```{r}
+#| label: Visualizing-species-with-their-body-mass-figures
+#| fig-cap: "Body mass of penguins by species"
+
+ggplot(penguins_clean, aes(x = species, y = body_mass_g, fill = species)) + geom_boxplot()+ 
+    labs(
+        x = 'Penguin Species',
+        y = 'Body Mass (g)'
+    ) +
+    theme_minimal() +
+    theme(legend.position = "none")
+
+```
+
+## Findings
+After removing the two rows with nas, the outcome shows that 'Gentoo' species typically has the highest body mass across the three penguin species.

@@ -1,2 +1,8 @@
 /.quarto/
 **/*.quarto_ipynb
+.quarto/
+_site/
+.DS_Store
+.venv/
+renv/library/
+renv/staging/

@@ -4,14 +4,56 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nDu Du\n\n\n\n\n\nNo matching items"
+    "text": "How does body mass differ from penguin species?\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nDu Du\n\n\n\n\n\n\n\n\n\n\n\n\nHow does body mass differ from penguin species?\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nDu Du\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nDu Du\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Du Du",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nHello! My name is Du Du and I come from China. I just finished my undergraduate study at UBC as well and I’m now at MDS program at UBC! I would like to explore the world using the latest technology under the emerge of LLM. Hopefully I can get into the field of Data Science!"
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\nHello! My name is Du Du and I come from China. I just finished my undergraduate study at UBC as well and I’m now at MDS program at UBC! I would like to explore the world using the latest technology under the emerge of LLM. Hopefully I can get into the field of Data Science!"
+  },
+  {
+    "objectID": "posts/penguins-r/index.html",
+    "href": "posts/penguins-r/index.html",
+    "title": "How does body mass differ from penguin species?",
+    "section": "",
+    "text": "This post studies how penguins’ species have impact on their corresponding body mass.\nLicense: The data source “penguins” comes from: Palmer Penguins, collected by Dr. Kristen Gorman and Palmer Station Antarctica LTER. The data are available under the CC0 license."
+  },
+  {
+    "objectID": "posts/penguins-r/index.html#loading-library-and-inspecting-data",
+    "href": "posts/penguins-r/index.html#loading-library-and-inspecting-data",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Loading library and inspecting data",
+    "text": "Loading library and inspecting data\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndim(penguins)\n\n[1] 344   8\n\ncolSums(is.na(penguins))\n\n          species            island    bill_length_mm     bill_depth_mm \n                0                 0                 2                 2 \nflipper_length_mm       body_mass_g               sex              year \n                2                 2                11                 0"
+  },
+  {
+    "objectID": "posts/penguins-r/index.html#cleaning-data",
+    "href": "posts/penguins-r/index.html#cleaning-data",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Cleaning data",
+    "text": "Cleaning data\n\npenguins_clean &lt;-\n    penguins |&gt;\n    drop_na(body_mass_g)"
+  },
+  {
+    "objectID": "posts/penguins-r/index.html#analyzing-body-mass-by-species",
+    "href": "posts/penguins-r/index.html#analyzing-body-mass-by-species",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Analyzing body mass by species",
+    "text": "Analyzing body mass by species\n\npenguins_summary &lt;-\n    penguins_clean |&gt;\n    group_by(species) |&gt;\n    summarise(\n        n = n(),\n        mean_mass_g = mean(body_mass_g),\n        median_mass_g = median(body_mass_g),\n        sd_mass_g = sd(body_mass_g),\n        .groups = \"drop\"\n    )\n\nknitr::kable(\n    penguins_summary,\n    digits = 1,\n    caption = \"Body mass summary by penguin species(grams).\"\n)\n\n\nBody mass summary by penguin species(grams).\n\n\nspecies\nn\nmean_mass_g\nmedian_mass_g\nsd_mass_g\n\n\n\n\nAdelie\n151\n3700.7\n3700\n458.6\n\n\nChinstrap\n68\n3733.1\n3700\n384.3\n\n\nGentoo\n123\n5076.0\n5000\n504.1"
+  },
+  {
+    "objectID": "posts/penguins-r/index.html#visualizing-the-summary-using-a-boxplot",
+    "href": "posts/penguins-r/index.html#visualizing-the-summary-using-a-boxplot",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Visualizing the summary using a boxplot",
+    "text": "Visualizing the summary using a boxplot\n\nggplot(penguins_clean, aes(x = species, y = body_mass_g, fill = species)) + geom_boxplot()+ \n    labs(\n        x = 'Penguin Species',\n        y = 'Body Mass (g)'\n    ) +\n    theme_minimal() +\n    theme(legend.position = \"none\")\n\n\n\n\nBody mass of penguins by species"
+  },
+  {
+    "objectID": "posts/penguins-r/index.html#findings",
+    "href": "posts/penguins-r/index.html#findings",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Findings",
+    "text": "Findings\nAfter removing the two rows with nas, the outcome shows that ‘Gentoo’ species typically has the highest body mass across the three penguin species."
   },
   {
     "objectID": "posts/first-weeks/index.html",
@@ -21,18 +63,53 @@
     "text": "The orientation was great! I made several friends and chatted a lot. The professors and coordinators were kind and warm.\nWeek of MDS has finished! Initially I felt nervous and afraid of can’t catching up. However, things went smoother and I managed to submit all homework before Saturday!\nWhen I write this post, I get busier than the past week. I have so much thigns to do!!!\n\n\n\nOrientation day on campus."
   },
   {
+    "objectID": "posts/penguins-python/index.html",
+    "href": "posts/penguins-python/index.html",
+    "title": "How does body mass differ from penguin species?",
+    "section": "",
+    "text": "This post studies how penguins’ species have impact on their corresponding body mass.\nLicense: The data source “penguins” comes from: Palmer Penguins, collected by Dr. Kristen Gorman and Palmer Station Antarctica LTER. The data are available under the CC0 license.\nimport sys\nimport pandas as pd\nfrom palmerpenguins import load_penguins\nimport matplotlib.pyplot as plt\nfrom IPython.display import display"
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#cleaning-data",
+    "href": "posts/penguins-python/index.html#cleaning-data",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Cleaning data",
+    "text": "Cleaning data\nInspecting data and remove the missing values in species and body mass columns\n\npenguins = load_penguins()\npenguins_clean = penguins.dropna(\n    subset = ['species', 'body_mass_g']\n).copy()\n\noriginal_rows = len(penguins)\nremaining_rows = len(penguins_clean)\nprint(original_rows)\nprint(remaining_rows)\n\n344\n342"
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#analyzing-body-mass-by-species",
+    "href": "posts/penguins-python/index.html#analyzing-body-mass-by-species",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Analyzing body mass by species",
+    "text": "Analyzing body mass by species\nGrouping species and calculating the mean, median, and standard deviation of body mass for each species.\n\npenguins_summary = (penguins.groupby('species', as_index=False).agg(\n    n = ('body_mass_g', 'count'),\n    mean_mass_g = ('body_mass_g', 'mean'),\n    median_mass_g = ('body_mass_g', 'median'),\n    sd_mass_g = ('body_mass_g', 'std')\n    )\n)\npenguins_summary\n\n\n\n\n\n\n\n\nspecies\nn\nmean_mass_g\nmedian_mass_g\nsd_mass_g\n\n\n\n\n0\nAdelie\n151\n3700.662252\n3700.0\n458.566126\n\n\n1\nChinstrap\n68\n3733.088235\n3700.0\n384.335081\n\n\n2\nGentoo\n123\n5076.016260\n5000.0\n504.116237"
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#visualizing-the-summary-using-a-boxplot",
+    "href": "posts/penguins-python/index.html#visualizing-the-summary-using-a-boxplot",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Visualizing the summary using a boxplot",
+    "text": "Visualizing the summary using a boxplot\n\nspecies_order = ['Adelie', 'Chinstrap', 'Gentoo']\nvalues = []\nfor species in species_order:\n    body_mass = penguins_clean.loc[penguins_clean['species'] == species, 'body_mass_g']\n    values.append(body_mass)\n\nfig, ax = plt.subplots(figsize = (7, 4.5))\nax.boxplot(values, tick_labels = species_order)\nax.set_xlabel('Penguin species')\nax.set_ylabel('Body mass(g)')\nax.grid(axis='y', alpha = 0.3)\nfig.tight_layout()\nplt.show()\n\n\n\n\nBody mass of penguins by species"
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#findings",
+    "href": "posts/penguins-python/index.html#findings",
+    "title": "How does body mass differ from penguin species?",
+    "section": "Findings",
+    "text": "Findings\nAfter removing the two rows with nas, the outcome shows that ‘Gentoo’ species typically has the highest body mass across the three penguin species."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Born and raised in Tianjin, China, yes, like the stereotypes I can do crosstalks for sure. I studied until second year of my undergrads and transferred to UBC Sauder and finished my undergraduate this May. Then I directly enterred into MDS at UBC for further study."
   },
   {
     "objectID": "about.html#background",
     "href": "about.html#background",
     "title": "About",
-    "section": "Background",
-    "text": "Background\nBorn and raised in Tianjin, China, yes, like the stereotypes I can do crosstalks for sure. I studied until second year of my undergrads and transferred to UBC Sauder and finished my undergraduate this May. Then I directly enterred into MDS at UBC for further study."
+    "section": "",
+    "text": "Born and raised in Tianjin, China, yes, like the stereotypes I can do crosstalks for sure. I studied until second year of my undergrads and transferred to UBC Sauder and finished my undergraduate this May. Then I directly enterred into MDS at UBC for further study."
   },
   {
     "objectID": "about.html#why-data-science",
