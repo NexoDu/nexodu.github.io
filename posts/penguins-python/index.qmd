@@ -1,5 +1,5 @@
 ---
-title: "How does body mass differ from penguin species?"
+title: "How does body mass differ from penguin species?_(Python)"
 author: "Du Du"
 date: "2026-09-24"
 format: html
@@ -15,6 +15,7 @@ License: The data source "penguins" comes from:
 
 ```{python}
 #|label: setup
+#|message: false
 #|warning: false
 
 import sys
