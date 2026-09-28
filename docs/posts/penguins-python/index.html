@@ -167,6 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#analyzing-body-mass-by-species" id="toc-analyzing-body-mass-by-species" class="nav-link" data-scroll-target="#analyzing-body-mass-by-species">Analyzing body mass by species</a></li>
   <li><a href="#visualizing-the-summary-using-a-boxplot" id="toc-visualizing-the-summary-using-a-boxplot" class="nav-link" data-scroll-target="#visualizing-the-summary-using-a-boxplot">Visualizing the summary using a boxplot</a></li>
   <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
   </ul>
 </nav>
     </div>
@@ -224,11 +225,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>original_rows <span class="op">=</span> <span class="bu">len</span>(penguins)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>remaining_rows <span class="op">=</span> <span class="bu">len</span>(penguins_clean)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(original_rows)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(remaining_rows)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'original_rows: </span><span class="sc">{</span>original_rows<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Remaining_rows: </span><span class="sc">{</span>remaining_rows<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>344
-342</code></pre>
+<pre><code>original_rows: 344
+Remaining_rows: 342</code></pre>
 </div>
 </div>
 </section>
@@ -236,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="analyzing-body-mass-by-species">Analyzing body mass by species</h2>
 <p>Grouping species and calculating the mean, median, and standard deviation of body mass for each species.</p>
 <div id="cell-summary-of-body-mass-by-species" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins_summary <span class="op">=</span> (penguins.groupby(<span class="st">'species'</span>, as_index<span class="op">=</span><span class="va">False</span>).agg(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins_summary <span class="op">=</span> (penguins_clean.groupby(<span class="st">'species'</span>, as_index<span class="op">=</span><span class="va">False</span>).agg(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> (<span class="st">'body_mass_g'</span>, <span class="st">'count'</span>),</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    mean_mass_g <span class="op">=</span> (<span class="st">'body_mass_g'</span>, <span class="st">'mean'</span>),</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    median_mass_g <span class="op">=</span> (<span class="st">'body_mass_g'</span>, <span class="st">'median'</span>),</span>
@@ -320,6 +321,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="findings" class="level2">
 <h2 class="anchored" data-anchor-id="findings">Findings</h2>
 <p>After removing the two rows with nas, the outcome shows that ‘Gentoo’ species typically has the highest body mass across the three penguin species.</p>
+<p>Pay attention that due correlation doesn’t mean causation. This analysis doesn’t account for other characters including sex, island, and etc.</p>
+</section>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference</h2>
+<p>Horst, A. M., Hill, A. P., and Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218.</p>
 
 
 </section>

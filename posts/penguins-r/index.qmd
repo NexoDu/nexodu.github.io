@@ -13,7 +13,7 @@ License: The data source "penguins" comes from:
 
 ## Loading library and inspecting data
 ```{r}
-#| label: setup&inspect-data
+#| label: setup-inspect-data
 #| message: false
 #| warning: false
 
@@ -25,7 +25,7 @@ colSums(is.na(penguins))
 
 ## Cleaning data
 ```{r}
-#| label: cleaning-data (dropping NAs in column body_mass_g)
+#| label: cleaning-data-(dropping NAs in column body_mass_g)
 
 penguins_clean <-
     penguins |>
@@ -71,3 +71,9 @@ ggplot(penguins_clean, aes(x = species, y = body_mass_g, fill = species)) + geom
 
 ## Findings
 After removing the two rows with nas, the outcome shows that 'Gentoo' species typically has the highest body mass across the three penguin species.
+
+Pay attention that due correlation doesn't mean causation. This analysis doesn't account for other characters including sex, island, and etc.
+
+## Reference
+
+Horst, A. M., Hill, A. P., and Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218.

@@ -53,7 +53,14 @@
     "href": "posts/penguins-r/index.html#findings",
     "title": "How does body mass differ from penguin species?_(R)",
     "section": "Findings",
-    "text": "Findings\nAfter removing the two rows with nas, the outcome shows that ‘Gentoo’ species typically has the highest body mass across the three penguin species."
+    "text": "Findings\nAfter removing the two rows with nas, the outcome shows that ‘Gentoo’ species typically has the highest body mass across the three penguin species.\nPay attention that due correlation doesn’t mean causation. This analysis doesn’t account for other characters including sex, island, and etc."
+  },
+  {
+    "objectID": "posts/penguins-r/index.html#reference",
+    "href": "posts/penguins-r/index.html#reference",
+    "title": "How does body mass differ from penguin species?_(R)",
+    "section": "Reference",
+    "text": "Reference\nHorst, A. M., Hill, A. P., and Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218."
   },
   {
     "objectID": "posts/first-weeks/index.html",
@@ -74,14 +81,14 @@
     "href": "posts/penguins-python/index.html#cleaning-data",
     "title": "How does body mass differ from penguin species?_(Python)",
     "section": "Cleaning data",
-    "text": "Cleaning data\nInspecting data and remove the missing values in species and body mass columns\n\npenguins = load_penguins()\npenguins_clean = penguins.dropna(\n    subset = ['species', 'body_mass_g']\n).copy()\n\noriginal_rows = len(penguins)\nremaining_rows = len(penguins_clean)\nprint(original_rows)\nprint(remaining_rows)\n\n344\n342"
+    "text": "Cleaning data\nInspecting data and remove the missing values in species and body mass columns\n\npenguins = load_penguins()\npenguins_clean = penguins.dropna(\n    subset = ['species', 'body_mass_g']\n).copy()\n\noriginal_rows = len(penguins)\nremaining_rows = len(penguins_clean)\nprint(f'original_rows: {original_rows}')\nprint(f'Remaining_rows: {remaining_rows}')\n\noriginal_rows: 344\nRemaining_rows: 342"
   },
   {
     "objectID": "posts/penguins-python/index.html#analyzing-body-mass-by-species",
     "href": "posts/penguins-python/index.html#analyzing-body-mass-by-species",
     "title": "How does body mass differ from penguin species?_(Python)",
     "section": "Analyzing body mass by species",
-    "text": "Analyzing body mass by species\nGrouping species and calculating the mean, median, and standard deviation of body mass for each species.\n\npenguins_summary = (penguins.groupby('species', as_index=False).agg(\n    n = ('body_mass_g', 'count'),\n    mean_mass_g = ('body_mass_g', 'mean'),\n    median_mass_g = ('body_mass_g', 'median'),\n    sd_mass_g = ('body_mass_g', 'std')\n    )\n)\npenguins_summary\n\n\n\n\n\n\n\n\nspecies\nn\nmean_mass_g\nmedian_mass_g\nsd_mass_g\n\n\n\n\n0\nAdelie\n151\n3700.662252\n3700.0\n458.566126\n\n\n1\nChinstrap\n68\n3733.088235\n3700.0\n384.335081\n\n\n2\nGentoo\n123\n5076.016260\n5000.0\n504.116237"
+    "text": "Analyzing body mass by species\nGrouping species and calculating the mean, median, and standard deviation of body mass for each species.\n\npenguins_summary = (penguins_clean.groupby('species', as_index=False).agg(\n    n = ('body_mass_g', 'count'),\n    mean_mass_g = ('body_mass_g', 'mean'),\n    median_mass_g = ('body_mass_g', 'median'),\n    sd_mass_g = ('body_mass_g', 'std')\n    )\n)\npenguins_summary\n\n\n\n\n\n\n\n\nspecies\nn\nmean_mass_g\nmedian_mass_g\nsd_mass_g\n\n\n\n\n0\nAdelie\n151\n3700.662252\n3700.0\n458.566126\n\n\n1\nChinstrap\n68\n3733.088235\n3700.0\n384.335081\n\n\n2\nGentoo\n123\n5076.016260\n5000.0\n504.116237"
   },
   {
     "objectID": "posts/penguins-python/index.html#visualizing-the-summary-using-a-boxplot",
@@ -95,7 +102,14 @@
     "href": "posts/penguins-python/index.html#findings",
     "title": "How does body mass differ from penguin species?_(Python)",
     "section": "Findings",
-    "text": "Findings\nAfter removing the two rows with nas, the outcome shows that ‘Gentoo’ species typically has the highest body mass across the three penguin species."
+    "text": "Findings\nAfter removing the two rows with nas, the outcome shows that ‘Gentoo’ species typically has the highest body mass across the three penguin species.\nPay attention that due correlation doesn’t mean causation. This analysis doesn’t account for other characters including sex, island, and etc."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#reference",
+    "href": "posts/penguins-python/index.html#reference",
+    "title": "How does body mass differ from penguin species?_(Python)",
+    "section": "Reference",
+    "text": "Reference\nHorst, A. M., Hill, A. P., and Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218."
   },
   {
     "objectID": "about.html",

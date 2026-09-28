@@ -15,7 +15,6 @@ License: The data source "penguins" comes from:
 
 ```{python}
 #|label: setup
-#|message: false
 #|warning: false
 
 import sys
@@ -37,8 +36,8 @@ penguins_clean = penguins.dropna(
 
 original_rows = len(penguins)
 remaining_rows = len(penguins_clean)
-print(original_rows)
-print(remaining_rows)
+print(f'original_rows: {original_rows}')
+print(f'Remaining_rows: {remaining_rows}')
 
 ```
 
@@ -46,7 +45,7 @@ print(remaining_rows)
 Grouping species and calculating the mean, median, and standard deviation of body mass for each species.
 ```{python}
 #|label: summary-of-body-mass-by-species
-penguins_summary = (penguins.groupby('species', as_index=False).agg(
+penguins_summary = (penguins_clean.groupby('species', as_index=False).agg(
     n = ('body_mass_g', 'count'),
     mean_mass_g = ('body_mass_g', 'mean'),
     median_mass_g = ('body_mass_g', 'median'),
@@ -79,3 +78,9 @@ plt.show()
 
 ## Findings
 After removing the two rows with nas, the outcome shows that 'Gentoo' species typically has the highest body mass across the three penguin species.
+
+Pay attention that due correlation doesn't mean causation. This analysis doesn't account for other characters including sex, island, and etc.
+
+## Reference
+
+Horst, A. M., Hill, A. P., and Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218.
